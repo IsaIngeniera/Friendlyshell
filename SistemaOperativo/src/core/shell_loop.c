@@ -19,7 +19,9 @@ char *nombres_comandos[] = {
     "calc",
     "ayuda",
     "limpiar",
-    "salir"
+    "salir",
+    "crear",
+    "renombrar"
 };
 
 void (*func_comandos[]) (char **) = {
@@ -30,7 +32,9 @@ void (*func_comandos[]) (char **) = {
     &cmd_calc,
     &cmd_ayuda,
     &cmd_limpiar,
-    &cmd_salir
+    &cmd_salir,
+    &cmd_crear,
+    &cmd_renombrar
 };
 
 int num_comandos() {

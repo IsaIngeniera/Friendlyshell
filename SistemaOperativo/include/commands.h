@@ -75,4 +75,8 @@ void cmd_limpiar(char **args);
  */
 int num_comandos();
 
+void cmd_crear(char **args);
+
+void cmd_renombrar(char **args);
+
 #endif /* COMMANDS_H */

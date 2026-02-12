@@ -79,3 +79,47 @@ void cmd_leer(char **args) {
     // fclose(): Es crítico cerrar los archivos para evitar fugas de recursos.
     fclose(fp);
 }
+/**
+ * @brief Comando CREAR
+ * * Crea un nuevo archivo de texto vacío. Si el archivo ya existe,
+ * su contenido será borrado (comportamiento de "w").
+ * * @param args args[1] debe ser el nombre del nuevo archivo.
+ */
+void cmd_crear(char **args) {
+    if (args[1] == NULL) {
+        printf("Error: Debes especificar el nombre del archivo a crear.\n");
+        printf("Uso: crear <nombre_archivo>\n");
+        return;
+    }
+
+    // fopen con modo "w" crea el archivo si no existe.
+    FILE *fp = fopen(args[1], "w");
+    
+    if (fp == NULL) {
+        perror("Error al crear el archivo");
+    } else {
+        printf("Archivo '%s' creado exitosamente.\n", args[1]);
+        fclose(fp);
+    }
+}
+
+/**
+ * @brief Comando RENOMBRAR (mv)
+ * * Cambia el nombre de un archivo existente.
+ * * @param args args[1] es el nombre actual, args[2] es el nombre nuevo.
+ */
+void cmd_renombrar(char **args) {
+    // Verificamos que tengamos ambos nombres (origen y destino)
+    if (args[1] == NULL || args[2] == NULL) {
+        printf("Error: Faltan argumentos.\n");
+        printf("Uso: renombrar <nombre_actual> <nuevo_nombre>\n");
+        return;
+    }
+
+    // rename() devuelve 0 si tuvo éxito, -1 si falló.
+    if (rename(args[1], args[2]) == 0) {
+        printf("Archivo renombrado exitosamente de '%s' a '%s'.\n", args[1], args[2]);
+    } else {
+        perror("Error al renombrar el archivo");
+    }
+}

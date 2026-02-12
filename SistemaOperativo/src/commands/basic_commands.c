@@ -27,6 +27,8 @@ void cmd_menu(char **args) {
     printf("  • calc      - Calculadora simple\n");
     printf("  • limpiar   - Limpiar la pantalla\n");
     printf("  • ayuda     - Ayuda detallada de comandos\n");
+    printf("  • crear     - Crear archivo vacío\n");
+    printf("  • renombrar - Renombrar archivo existente\n");
     printf("  • menu      - Mostrar este menú\n");
     printf("  • salir     - Terminar sesión\n");
     printf("════════════════════════════════════════\n");
@@ -100,6 +102,21 @@ void cmd_ayuda(char **args) {
     printf("│ Función: Muestra el menú principal con lista resumida       │\n");
     printf("│          de comandos disponibles                            │\n");
     printf("│ Atajo: menu                                                 │\n");
+    printf("└─────────────────────────────────────────────────────────────┘\n\n");
+    
+    printf("┌─ CREAR ─────────────────────────────────────────────────────┐\n");
+    printf("│ Nombre completo: Create File (crear archivo)                │\n");
+    printf("│ Función: Crea un nuevo archivo de texto vacío.              │\n");
+    printf("│          Si existe, borra su contenido (sobrescribe).       │\n");
+    printf("│ Sintaxis: crear <nombre_archivo>                            │\n");
+    printf("│ Ejemplo: crear notas.txt                                    │\n");
+    printf("└─────────────────────────────────────────────────────────────┘\n\n");
+
+    printf("┌─ RENOMBRAR ─────────────────────────────────────────────────┐\n");
+    printf("│ Nombre completo: Rename File (renombrar archivo)            │\n");
+    printf("│ Función: Cambia el nombre de un archivo existente.          │\n");
+    printf("│ Sintaxis: renombrar <nombre_actual> <nuevo_nombre>          │\n");
+    printf("│ Ejemplo: renombrar viejo.txt nuevo.txt                      │\n");
     printf("└─────────────────────────────────────────────────────────────┘\n\n");
     
     printf("┌─ SALIR ─────────────────────────────────────────────────────┐\n");
