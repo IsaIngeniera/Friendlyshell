@@ -6,12 +6,15 @@
  * interactuando con las APIs del sistema de archivos.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>  // printf
+#include <stdlib.h>// exit, malloc
 #include <string.h>
-#include <dirent.h> // Librería POSIX para manejo de directorios
+#include <dirent.h>
+#include <unistd.h>    // ¡IMPORTANTE! Para unlink y geteuid
+#include <pwd.h>       // ¡IMPORTANTE! Para getpwuid y struct passwd
+#include <sys/types.h> // ¡IMPORTANTE! Para el tipo de dato uid_t
+#include <time.h>   // time, localtime, strftime
 #include "commands.h"
-
 /**
  * @brief Comando LISTAR (ls)
  * 
@@ -122,4 +125,32 @@ void cmd_renombrar(char **args) {
     } else {
         perror("Error al renombrar el archivo");
     }
+}
+
+// Implementación de eliminar archivo
+void cmd_eliminar(char **args) {
+    if (args[1] == NULL) {
+        fprintf(stderr, "Error: No pudimos elimianr tu archivo. PISTA: escribe el archivo que quieres eliminar '\n");
+    } else {
+        if (unlink(args[1]) != 0) {
+            perror("Error al eliminar el archivo, PISTA: añade la extensión");
+        } else {
+            printf("Archivo '%s' eliminado con éxito.\n", args[1]);
+        }
+    }
+}
+
+// Implementación de buscar/mostrar usuario
+void cmd_userinfo(char **args) {
+    uid_t uid = geteuid();
+    struct passwd *pw = getpwuid(uid);
+
+    if (pw) {
+        printf("Usuario actual: %s\n", pw->pw_name);
+        printf("Directorio Home: %s\n", pw->pw_dir);
+        printf("Shell por defecto: %s\n", pw->pw_shell);
+    } else {
+        perror("Error al obtener información del usuario");
+    }
+    (void)args;
 }

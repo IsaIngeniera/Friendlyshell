@@ -79,4 +79,20 @@ void cmd_crear(char **args);
 
 void cmd_renombrar(char **args);
 
+/**
+ * @brief Elimina un archivo del sistema de archivos.
+ * * Utiliza la llamada al sistema unlink() para borrar el archivo
+ * especificado en los argumentos.
+ * * @param args Lista de argumentos. args[1] debe ser el nombre del archivo.
+ */
+void cmd_eliminar(char **args);
+
+/**
+ * @brief Muestra información detallada del usuario actual.
+ * * Obtiene el UID y busca los datos en la base de datos de contraseñas
+ * del sistema (passwd) para mostrar nombre, home y shell.
+ * * @param args Argumentos del comando (ignorados).
+ */
+void cmd_userinfo(char **args);
+
 #endif /* COMMANDS_H */

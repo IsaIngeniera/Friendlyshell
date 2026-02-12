@@ -21,7 +21,9 @@ char *nombres_comandos[] = {
     "limpiar",
     "salir",
     "crear",
-    "renombrar"
+    "renombrar",
+    "eliminar",
+    "userinfo"
 };
 
 void (*func_comandos[]) (char **) = {
@@ -34,7 +36,9 @@ void (*func_comandos[]) (char **) = {
     &cmd_limpiar,
     &cmd_salir,
     &cmd_crear,
-    &cmd_renombrar
+    &cmd_renombrar,
+    &cmd_eliminar,
+    &cmd_userinfo,
 };
 
 int num_comandos() {

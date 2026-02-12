@@ -29,6 +29,8 @@ void cmd_menu(char **args) {
     printf("  • ayuda     - Ayuda detallada de comandos\n");
     printf("  • crear     - Crear archivo vacío\n");
     printf("  • renombrar - Renombrar archivo existente\n");
+    printf("  • eliminar  - Elimina archivo con confirmación.\n");
+    printf("  • userinfo  - Muestra información del usuario.\n");
     printf("  • menu      - Mostrar este menú\n");
     printf("  • salir     - Terminar sesión\n");
     printf("════════════════════════════════════════\n");
@@ -118,6 +120,8 @@ void cmd_ayuda(char **args) {
     printf("│ Sintaxis: renombrar <nombre_actual> <nuevo_nombre>          │\n");
     printf("│ Ejemplo: renombrar viejo.txt nuevo.txt                      │\n");
     printf("└─────────────────────────────────────────────────────────────┘\n\n");
+
+    
     
     printf("┌─ SALIR ─────────────────────────────────────────────────────┐\n");
     printf("│ Nombre completo: Exit (salir)                               │\n");
