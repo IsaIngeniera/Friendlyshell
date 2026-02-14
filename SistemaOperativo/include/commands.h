@@ -57,13 +57,18 @@ void cmd_leer(char **args);
 void cmd_calc(char **args);
 
 // ======================================================
-// === Comandos Avanzados ===============================
+// === Comandos Avanzados del sistema ===================
 // ======================================================
 
 /**
  * @brief Limpia la pantalla del terminal.
  */
 void cmd_limpiar(char **args);
+
+/**
+ * @brief Muestra el directorio de trabajo actual (pwd).
+ */
+void cmd_directorio(char **args); 
 
 // ======================================================
 // === Utilidades del Registro de Comandos ==============

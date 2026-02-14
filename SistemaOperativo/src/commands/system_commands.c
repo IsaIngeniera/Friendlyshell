@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h> // Para atof (ASCII to Float conversion)
 #include "commands.h"
+#include <unistd.h> // Para getcwd (Obtener directorio actual)
 
 /**
  * @brief Comando CALC (Calculadora)
@@ -63,4 +64,36 @@ void cmd_calc(char **args) {
     // 4. Salida
     // %.2f formatea el float para mostrar solo 2 decimales.
     printf("Resultado: %.2f\n", res);
+}
+
+/**
+ * @brief Comando LIMPIAR
+ *
+ * Limpia la pantalla del terminal usando el comando
+ * propio del sistema operativo y muestra el mensaje inicial.
+ *
+ * - Linux / WSL / macOS → clear
+ * - Windows → cls
+ */
+
+void cmd_limpiar(char **args) {
+printf("\033[H\033[2J\033[3J");
+    (void)args; // Evitamos warning de variable no usada
+}
+
+/**
+ * @brief Comando DIRECTORIO (pwd)
+ * Muestra la ruta absoluta del directorio actual de trabajo.
+ */
+
+void cmd_directorio(char **args) {
+    char cwd[1024]; // Buffer para almacenar la ruta
+    
+    // getcwd llena el buffer 'cwd' con la ruta actual
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("Directorio actual: %s\n", cwd);
+    } else {
+        perror("Error al obtener el directorio actual");
+    }
+    (void)args; // Evitar advertencia de variable no usada
 }

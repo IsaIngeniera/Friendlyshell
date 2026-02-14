@@ -30,6 +30,7 @@ void cmd_menu(char **args) {
     printf("  • crear     - Crear archivo vacío\n");
     printf("  • renombrar - Renombrar archivo existente\n");
     printf("  • eliminar  - Elimina archivo con confirmación.\n");
+    printf("  • directorio- Muestra el directorio actual\n");
     printf("  • userinfo  - Muestra información del usuario.\n");
     printf("  • menu      - Mostrar este menú\n");
     printf("  • salir     - Terminar sesión\n");
@@ -120,14 +121,22 @@ void cmd_ayuda(char **args) {
     printf("│ Sintaxis: renombrar <nombre_actual> <nuevo_nombre>          │\n");
     printf("│ Ejemplo: renombrar viejo.txt nuevo.txt                      │\n");
     printf("└─────────────────────────────────────────────────────────────┘\n\n");
-
     
+    printf("┌─ DIRECTORIO ────────────────────────────────────────────────┐\n");
+    printf("│ Nombre completo: Print Working Directory (directorio)       │\n");
+    printf("│ Función: Muestra la ruta completa del directorio de         │\n");
+    printf("│          trabajo actual (equivalente a 'pwd' en Unix)       │\n");
+    printf("│ Atajo: directorio                                           │\n");
+    printf("│ Ejemplo: directorio                                         │\n");
+    printf("└─────────────────────────────────────────────────────────────┘\n\n");
     
     printf("┌─ SALIR ─────────────────────────────────────────────────────┐\n");
     printf("│ Nombre completo: Exit (salir)                               │\n");
     printf("│ Función: Cierra la shell y finaliza la sesión               │\n");
     printf("│ Atajo: salir                                                │\n");
     printf("└─────────────────────────────────────────────────────────────┘\n\n");
+
+    
     
     (void)args;
 }

@@ -23,7 +23,8 @@ char *nombres_comandos[] = {
     "crear",
     "renombrar",
     "eliminar",
-    "userinfo"
+    "userinfo",
+    "directorio"
 };
 
 void (*func_comandos[]) (char **) = {
@@ -39,6 +40,7 @@ void (*func_comandos[]) (char **) = {
     &cmd_renombrar,
     &cmd_eliminar,
     &cmd_userinfo,
+    &cmd_directorio
 };
 
 int num_comandos() {
@@ -69,7 +71,7 @@ void loop_shell() {
     char **args;
 
     while (1) {
-        printf("EAFITos> ");
+        printf("FriendlyShell> ");
 
         // 1. Leer
         linea = leer_linea();
