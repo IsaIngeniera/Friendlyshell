@@ -99,5 +99,9 @@ void cmd_eliminar(char **args);
  * * @param args Argumentos del comando (ignorados).
  */
 void cmd_userinfo(char **args);
+/**
+ * @brief Comando para contar  líneas/palabras/caracteres
+ */
+void cmd_wc(char **args);
 
-#endif /* COMMANDS_H */
+#endif 

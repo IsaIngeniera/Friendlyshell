@@ -10,6 +10,9 @@
 #include <stdlib.h> // Para atof (ASCII to Float conversion)
 #include "commands.h"
 #include <unistd.h> // Para getcwd (Obtener directorio actual)
+#include <pwd.h>    // (Para struct passwd y getpwuid)
+#include <grp.h>    // (Para struct group y getgrgid)
+
 
 /**
  * @brief Comando CALC (Calculadora)
@@ -96,4 +99,38 @@ void cmd_directorio(char **args) {
         perror("Error al obtener el directorio actual");
     }
     (void)args; // Evitar advertencia de variable no usada
+}
+
+
+/**
+ * @brief Comando USERINFO 
+ * Muestra la informacion del usuario.
+ */
+ 
+ void cmd_userinfo(char **args) {
+    uid_t uid = geteuid();
+    struct passwd *pw = getpwuid(uid);
+
+    if (pw) {
+        // Obtenemos el nombre del grupo a partir del ID
+        struct group *gr = getgrgid(pw->pw_gid);
+        char *group_name = (gr) ? gr->gr_name : "Desconocido";
+        
+        printf(" \n");
+        printf("  ** INFO DEL USUARIO (FriendlyShell)  ** \n");
+        printf(" \n");
+        printf("Nombre de usuario:    %s\n", pw->pw_name);
+        // pw_gecos suele guardar el nombre completo y a veces info extra separada por comas
+        printf("Nombre completo:      %s\n", pw->pw_gecos); 
+        printf("----------------------------------------\n");
+        printf("User ID (UID):        %d\n", pw->pw_uid);
+        printf("Group ID (GID):       %d (%s)\n", pw->pw_gid, group_name);
+        printf("----------------------------------------\n");
+        printf("Directorio Home:      %s\n", pw->pw_dir);
+        printf("Shell por defecto:    %s\n", pw->pw_shell);
+
+    } else {
+        perror("Error al obtener información del usuario");
+    }
+    (void)args;
 }

@@ -127,7 +127,12 @@ void cmd_renombrar(char **args) {
     }
 }
 
-// Implementación de eliminar archivo
+/**
+ * @brief Comando Eliminar (remove)
+ * * Cambia el nombre de un archivo existente.
+ * * @param args args[1] es el nombre del archivo a eliminar
+ */
+
 void cmd_eliminar(char **args) {
     if (args[1] == NULL) {
         fprintf(stderr, "Error: No pudimos elimianr tu archivo. PISTA: escribe el archivo que quieres eliminar '\n");
@@ -140,17 +145,3 @@ void cmd_eliminar(char **args) {
     }
 }
 
-// Implementación de buscar/mostrar usuario
-void cmd_userinfo(char **args) {
-    uid_t uid = geteuid();
-    struct passwd *pw = getpwuid(uid);
-
-    if (pw) {
-        printf("Usuario actual: %s\n", pw->pw_name);
-        printf("Directorio Home: %s\n", pw->pw_dir);
-        printf("Shell por defecto: %s\n", pw->pw_shell);
-    } else {
-        perror("Error al obtener información del usuario");
-    }
-    (void)args;
-}

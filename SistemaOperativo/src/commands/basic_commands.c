@@ -33,6 +33,7 @@ void cmd_menu(char **args) {
     printf("  • directorio- Muestra el directorio actual\n");
     printf("  • userinfo  - Muestra información del usuario.\n");
     printf("  • menu      - Mostrar este menú\n");
+    printf("  • wc        - Contador de líneas/palabras/caracteres.\n");
     printf("  • salir     - Terminar sesión\n");
     printf("════════════════════════════════════════\n");
     
@@ -121,6 +122,22 @@ void cmd_ayuda(char **args) {
     printf("│ Sintaxis: renombrar <nombre_actual> <nuevo_nombre>          │\n");
     printf("│ Ejemplo: renombrar viejo.txt nuevo.txt                      │\n");
     printf("└─────────────────────────────────────────────────────────────┘\n\n");
+
+    printf("┌─ ELIMINAR ─────────────────────────────────────────────────────┐\n");
+    printf("│ Nombre completo: Eliminar Archivo (Remove File)                │\n");
+    printf("│ Función: Elimina permanentemente un archivo del sistema.       │\n");
+    printf("│          ¡Cuidado! Esta acción no se puede deshacer.           │\n");
+    printf("│ Sintaxis: eliminar <nombre_archivo>                            │\n");
+    printf("│ Ejemplo: eliminar error.txt                                    │\n");
+    printf("└────────────────────────────────────────────────────────────────┘\n\n");
+
+    printf("┌─ USERINFO ─────────────────────────────────────────────────────┐\n");
+    printf("│ Nombre completo: Información del Usuario (User Info)           │\n");
+    printf("│ Función: Muestra detalles técnicos del usuario actual como     │\n");
+    printf("│          Nombre, ID (UID), Grupo (GID) y directorio Home.      │\n");
+    printf("│ Sintaxis: userinfo                                             │\n");
+    printf("│ Ejemplo: userinfo                                              │\n");
+    printf("└────────────────────────────────────────────────────────────────┘\n\n");
     
     printf("┌─ DIRECTORIO ────────────────────────────────────────────────┐\n");
     printf("│ Nombre completo: Print Working Directory (directorio)       │\n");
@@ -128,6 +145,13 @@ void cmd_ayuda(char **args) {
     printf("│          trabajo actual (equivalente a 'pwd' en Unix)       │\n");
     printf("│ Atajo: directorio                                           │\n");
     printf("│ Ejemplo: directorio                                         │\n");
+    printf("└─────────────────────────────────────────────────────────────┘\n\n");
+
+    printf("┌─ WC (Word Count) ───────────────────────────────────────────┐\n");
+    printf("│ Nombre completo: Word Count (contador de palabras)          │\n");
+    printf("│ Función: Cuenta líneas, palabras y caracteres de un archivo.│\n");
+    printf("│ Sintaxis: wc <archivo>                                      │\n");
+    printf("│ Ejemplo: wc documento.txt                                   │\n");
     printf("└─────────────────────────────────────────────────────────────┘\n\n");
     
     printf("┌─ SALIR ─────────────────────────────────────────────────────┐\n");
