@@ -4,7 +4,7 @@ Este archivo tiene como objetivo reconocer a todas las personas que han contribu
 
 ---
 
-## 🏆 Mantenedores Principales
+## 🏆 Desarrolladores Principales
 
 | Nombre | Rol |
 |--------|-----|
