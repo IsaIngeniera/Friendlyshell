@@ -80,8 +80,25 @@ void cmd_directorio(char **args);
  */
 int num_comandos();
 
+
+/**
+ * @brief Crea un nuevo archivo de texto vacío.
+ * 
+ * Crea un nuevo archivo en el directorio actual. Si el archivo ya existe,
+ * su contenido será borrado (comportamiento de fopen con modo "w").
+ * 
+ * @param args Lista de argumentos. args[1] debe ser el nombre del archivo.
+ */
 void cmd_crear(char **args);
 
+/**
+ * @brief Renombra un archivo existente (mv).
+ * 
+ * Cambia el nombre de un archivo existente en el sistema de archivos
+ * utilizando la función rename().
+ * 
+ * @param args Lista de argumentos. args[1] es el nombre actual, args[2] es el nombre nuevo.
+ */
 void cmd_renombrar(char **args);
 
 /**
