@@ -32,7 +32,7 @@
  */
 int main() {
     // Imprime el mensaje de bienvenida a la salida estándar (stdout)
-    printf("Iniciando EAFITos v1.0...\n");
+    printf("Iniciando FriendlyShell v1.0...\n");
     printf("Escribe 'menu' para comenzar.\n\n");
     
     // Llama al bucle principal de la shell ubicado en src/core/shell_loop.c.
